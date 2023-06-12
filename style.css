@@ -19,7 +19,7 @@ html, body{
     scroll-behavior: smooth;
 }
 
-.sub-container{
+.container{
     position: absolute;
     top: 0;
     left: 0;
@@ -30,7 +30,7 @@ html, body{
 .logo-background{
     background-size: cover;
 
-    background-color: rgb(31, 31, 31);
+    background-color: #23242a;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,7 +97,7 @@ html, body{
 }
 .content{
     background-color: #f0f2ff;
-    height: 75%;
+    height: 85%;
     width: 80%;
     background-size: cover;
     text-align: center;
@@ -115,4 +115,149 @@ html, body{
 .purpose-content{
     font-size: 1.25vw;
     letter-spacing: 0.05em;
+}
+
+.panelist-schedule{
+    height: 90%;
+    background-color: #23242a;
+    background-size: cover;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10%;
+    overflow: scroll;
+}
+
+.panelists{
+    width: 65%;
+    background-color: #4B43EF;
+    background-size: cover;
+    display: inline-block;
+    padding: 5%;
+    height: auto;
+    color:#f0f2ff;
+    padding-bottom: 0;
+    margin-bottom: 10%
+}
+
+.panelist-container{
+    padding-top: 8vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 4%;
+}
+
+.panelist{
+    flex: 33%;
+    text-align: center;
+    max-width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2%;
+}
+.panelist img{
+    width: 50%;
+    height: auto;
+    aspect-ratio: 1/1;
+    margin-bottom: 1%;
+}
+.panelist .name{
+    font-family: Assistant-extrabold;
+    font-size: 1.1vw;
+    letter-spacing: 0.1em;
+    margin-bottom: 1%;
+}
+.panelist .school{
+    width: 45%;
+    background-color: #c0c9ff;
+    background-size: cover;
+    color:#4B43EF;
+    font-size: 0.9vw;
+    letter-spacing: 0.05em;
+    margin-bottom: 1%;
+}
+.panelist .study{
+    letter-spacing: 0.05em;
+    font-size: 0.9vw;
+    max-width: 30%;
+    line-height: 110%;
+}
+
+.panelist-back{
+    position: absolute;
+
+    width: 75%;
+    border: 3px solid #4B43EF;
+
+    translate: 3% 2.9%;
+}
+
+.schedule{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    font-family: Assistant-bold;
+    margin-bottom: 5%;
+}
+.schedule .title{
+    color:#f0f2ff;
+}
+.schedule .parallelogram{
+    transform: skew(10deg);
+    transform-origin: top left;
+}
+
+.schedule-row{
+    display: flex;
+    margin-bottom: 5%;
+}
+.event{
+    flex: 67%;
+    background-color: #c0c9ff;
+    background-size: cover;
+    margin-right: 5%;
+    color: #4B43EF;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    line-height: 1em;
+    display: flex;
+    align-items: center;
+}
+.time{
+    text-align: center;
+    flex: 33%;
+    background-color: #4B43EF;
+    background-size: cover;
+    color: #c0c9ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.event div, .time div{
+    transform: skew(-10deg);
+}
+
+.sponsors{
+    z-index: 5;
+    top: 100vh;
+}
+
+.red-bar{
+    width: 100%;
+    height: 5%;
+    background-color: #e82d48;
+    background-size: cover;
+}
+
+.image-container img{
+    width: 28%;
+    margin: 2%;
+    border: none;
+    border-radius: 12px;
 }
