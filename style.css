@@ -109,13 +109,13 @@ html, body{
 
 .blue-bar{
     width: 100%;
-    height: 0%;
+    height: 5%;
     background-color: #4B43EF;
     background-size: cover;
 }
 .content{
     background-color: #f0f2ff;
-    height: 90%;
+    height: 85%;
     width: 80%;
     background-size: cover;
     text-align: center;
@@ -144,7 +144,7 @@ html, body{
     flex-direction: column;
     align-items: center;
     padding-top: 10%;
-    overflow: scroll;
+    overflow-y: hidden;
 
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -395,7 +395,7 @@ html, body{
     padding-left: 3%;
     color:#f0f2ff;
     width:max-content;
-    overflow: scroll;
+    overflow: auto;
 
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -731,3 +731,4 @@ html, body{
     color:#f0f2ff;
     line-height: 1.2em;
 }
+
