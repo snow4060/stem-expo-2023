@@ -21,7 +21,7 @@ html, body{
     place-items: center;
     height: 100vh;
     background-color: #0c0d19;
-
+    
 }
 
 .container{
@@ -145,6 +145,12 @@ html, body{
     align-items: center;
     padding-top: 10%;
     overflow: scroll;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.panelist-schedule::-webkit-scrollbar{
+    display: none;
 }
 
 .panelists{
@@ -390,6 +396,12 @@ html, body{
     color:#f0f2ff;
     width:max-content;
     overflow: scroll;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.club-description::-webkit-scrollbar{
+    display: none;
 }
 .club-description .title{
     letter-spacing: normal;
@@ -497,7 +509,7 @@ html, body{
     background-size: cover;
 }
 
-.organizerContent{
+.organizer-content{
     height: 100%;
     width: 100%;
     display: flex;
@@ -678,7 +690,7 @@ html, body{
 }
 .bracket-text .media .role{
     position: absolute;
-    left: 33%;
+    left: 67%;
     transform: translate(-50%, -70%);
     background-color: #e82d48;
     padding-left: 1%;
@@ -717,4 +729,5 @@ html, body{
 }
 .organizer .name{
     color:#f0f2ff;
+    line-height: 1.2em;
 }

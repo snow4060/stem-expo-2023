@@ -40,9 +40,9 @@ document.addEventListener("DOMContentLoaded", async function() {
 
 function scroll(div1, div2, amt){
     var top = parseFloat(div2.style.top.slice(0, -2));
-    var newTop = top - amt/window.innerHeight;
+    var newTop = top - 30*Math.sign(amt);
     let j = 0;
-    for(let i = 0; Math.abs(i) < Math.abs(newTop-top); i+= (newTop-top)/20){
+    for(let i = 0; Math.abs(i) < 30; i+= (newTop-top)/30){
         j++;
         setTimeout(() => {
             if((top+i) >= 100){
@@ -50,6 +50,7 @@ function scroll(div1, div2, amt){
                 div1.classList.add('focus');
                 div2.classList.remove('focus');
                 div2.classList.remove('progress');
+                pauseScroll();
                 return;
             }
             else if((top+i) <= 0){
@@ -57,6 +58,7 @@ function scroll(div1, div2, amt){
                 div1.classList.remove('focus');
                 div2.classList.add('focus');
                 div2.classList.remove('progress');
+                pauseScroll();
                 return;
             }
             else{
@@ -82,11 +84,11 @@ clubsIconsContainer.style.marginLeft = '80%';
 
 function scrollLast(event){
     console.log("scroll last: " + event.deltaY);
-    var scrollAmt = event.deltaY*150;
+    // var scrollAmt = event.deltaY*150;
     var top = parseFloat(organizerContainer.style.top.slice(0, -2));
-    var newTop = top - scrollAmt/window.innerHeight;
+    var newTop = top - 15*Math.sign(event.deltaY);
     let j = 0;
-    for(let i = 0; Math.abs(i) < Math.abs(newTop-top); i += (newTop-top)/20){
+    for(let i = 0; Math.abs(i) < 15; i += (newTop-top)/15){
         j++;
         setTimeout(() => {
             if((top+i) >= 100){
@@ -120,11 +122,10 @@ function scrollLast(event){
     }
 }
 
-var firstDiv, secondDiv;
-window.addEventListener('wheel', function(event) {
+function handleScroll(event) {
 
     //whether allow scrolling on panelist page 
-    if(pages[2].style.top === '0vh'){
+    if(parseFloat(pages[2].style.top.slice(0, -2)) < 1){
         pages[2].style.overflowY = 'scroll';
     }
     else{
@@ -132,7 +133,6 @@ window.addEventListener('wheel', function(event) {
     }
     //positive: scroll down
     if(event.deltaY > 0){
-        event.preventDefault(); 
         if(sponsors.classList.contains('focus') && !sponsors.classList.contains('progress')){
             // scrollLast(event);
             scrollLast(event);
@@ -156,14 +156,14 @@ window.addEventListener('wheel', function(event) {
         }
         // console.log(firstDiv.scrollHeight)
         if(firstDiv.classList.contains('panelist-schedule') && firstDiv.scrollTop + firstDiv.clientHeight < firstDiv.scrollHeight){
-            console.log("schedule protection") 
+            console.log("schedule protection");
+            console.log(firstDiv.style.overflowY);
             return; 
         }
-        scroll(firstDiv, secondDiv, event.deltaY*300);
+        scroll(firstDiv, secondDiv, event.deltaY);
     }
     // negative: scroll up 
     else{
-        event.preventDefault();
         if(organizerContainer.classList.contains('focus') || organizerContainer.classList.contains('progress')){
             scrollLast(event);
             return;
@@ -184,10 +184,21 @@ window.addEventListener('wheel', function(event) {
         if(Array.prototype.indexOf.call(pages, secondDiv) < 1){ return; }
         if(secondDiv.classList.contains('panelist-schedule') && secondDiv.scrollTop > 0){ return; }
 
-        scroll(firstDiv, secondDiv, event.deltaY*300);
+        scroll(firstDiv, secondDiv, event.deltaY);
     }
-});
-  
+}
+
+function pauseScroll(){
+    window.removeEventListener('wheel', handleScroll);
+    setTimeout(() => {
+        window.addEventListener('wheel', handleScroll);
+        console.log('pause scroll');
+    }, 100);
+}
+
+var firstDiv, secondDiv;
+window.addEventListener('wheel', handleScroll);
+
 
 var panelistsContainer = document.getElementById('panelists');
 var panelistsContainerBack = document.getElementById('panelist-back');
@@ -251,6 +262,7 @@ function setDescription(name){
 
 var clubsContainerTitle = document.getElementById('clubs-container-title');
 var clubInfoContainer = document.querySelector('.club-info-container');
+var organizerContent = document.querySelector('.organizer-content');
 clubInfoContainer.style.visibility = 'hidden';
 
 
@@ -272,9 +284,9 @@ document.body.addEventListener('click', function(event){
             clubsIconsContainer.classList.remove('blur-appear');
             clubsIconsContainer.classList.add('blur-disappear');
         }
-        if(!organizerContainer.classList.contains('blur-disappear')){
-            organizerContainer.classList.remove('blur-appear');
-            organizerContainer.classList.add('blur-disappear');
+        if(!organizerContent.classList.contains('blur-disappear')){
+            organizerContent.classList.remove('blur-appear');
+            organizerContent.classList.add('blur-disappear');
         }
         clubInfoContainer.style.visibility = 'visible';
     }
@@ -293,12 +305,28 @@ document.body.addEventListener('click', function(event){
             clubsIconsContainer.classList.remove('blur-disappear');
             clubsIconsContainer.classList.add('blur-appear');
         }
-        if(!organizerContainer.classList.contains('blur-appear')){
-            organizerContainer.classList.remove('blur-disappear');
-            organizerContainer.classList.add('blur-appear');
+        if(!organizerContent.classList.contains('blur-appear')){
+            organizerContent.classList.remove('blur-disappear');
+            organizerContent.classList.add('blur-appear');
         }
         setTimeout(() => {
             clubInfoContainer.style.visibility = 'hidden';
         }, 100);
     }
 });
+
+
+document.addEventListener('keydown', function(event){
+    if(event.key === 'ArrowUp'){
+        console.log('up');
+    }
+    else if(event.key === 'ArrowDown'){
+        console.log('down');
+    }
+    else if(event.key === 'PageUp'){
+        console.log('page up');
+    }
+    else if(event.key === 'PageDown'){
+        console.log('page down');
+    }
+})
