@@ -174,7 +174,7 @@ async function scrollPage(event, full=false){
             console.log("attempted scrolling");
             pages[2].scrollTop = top+i;
             console.log(pages[2].scrollTop);
-            await wait(0);
+            await wait(6);
         }
     }
 }

@@ -806,5 +806,6 @@ html, body{
 .organizer .name{
     color:#f0f2ff;
     line-height: 1.2em;
+    margin-top: 6px;
 }
 
