@@ -177,6 +177,7 @@ async function scrollPage(event, full=false){
 }
 
 function handleScroll(event, full=false) {
+    pauseScroll(50);
     //whether allow scrolling on panelist page 
     if(parseFloat(pages[2].style.top.slice(0, -2)) == 0 && pages[3].style.top.slice(0, -2) >= 100){
         console.log("scroll top: " + pages[2].scrollTop);
@@ -242,12 +243,12 @@ function handleScroll(event, full=false) {
     }
 }
 
-function pauseScroll(){
+function pauseScroll(time=100){
     window.removeEventListener('wheel', handleScroll);
     setTimeout(() => {
         window.addEventListener('wheel', handleScroll);
         console.log('pause scroll');
-    }, 100);
+    }, time);
 }
 
 var firstDiv, secondDiv;
