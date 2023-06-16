@@ -57,6 +57,7 @@ async function scroll(div1, div2, amt, full=false){
     else{
         var newTop = top - 34*Math.sign(amt);
     }
+    if(Math.sign(newTop - top) == 0){ return; }
     for(let i = 0; Math.abs(i) <= Math.abs(newTop-top); i+= 1*Math.sign(newTop-top)){
         console.log("e");
         if((top+i) >= 100 && amt < 0){
@@ -109,6 +110,7 @@ async function scrollLast(event, full=false){
         newTop = 100;
     }
     console.log("new top: " + newTop);
+    if(Math.sign(newTop - top) == 0){ return; }
     for(let i = 0; Math.abs(i) <= Math.abs(newTop-top); i += 1*Math.sign(newTop-top)){
         console.log("top + i: " + (top + i));
         if((top+i) >= 100 && event.deltaY < 0){
@@ -154,6 +156,7 @@ async function scrollPage(event, full=false){
         delta = -top-2;
     }
     console.log("delta: " + delta);
+    if(delta == 0){ return; }
     for(let i = 0; Math.abs(i) <= Math.abs(delta); i += delta*0.1){
         if(pages[2].scrollTop + pages[2].clientHeight >= pages[2].scrollHeight && event.deltaY > 0){
             pages[2].scrollTop = pages[2].scrollHeight;
