@@ -95,7 +95,7 @@ clubsContainer.style.opacity = 0;
 var organizerContainer = document.querySelector('.organizer-container');
 organizerContainer.style.top = '100vh';
 var clubsIconsContainer = document.querySelector('.clubs-icons-container');
-clubsIconsContainer.style.marginLeft = '80%';
+clubsIconsContainer.style.left = '100%';
 
 async function scrollLast(event, full=false){
     console.log("scroll last: " + event.deltaY);
@@ -114,7 +114,7 @@ async function scrollLast(event, full=false){
         if((top+i) >= 100 && event.deltaY < 0){
             clubsContainer.style.top = '100vh';
             organizerContainer.style.top = '100vh';
-            clubsIconsContainer.style.marginLeft = '80%';
+            clubsIconsContainer.style.left = '100%';
             sponsors.classList.add('focus');
             organizerContainer.classList.remove('focus');
             organizerContainer.classList.remove('progress');
@@ -123,7 +123,7 @@ async function scrollLast(event, full=false){
         else if((top+i) <= 50 && event.deltaY > 0){
             organizerContainer.style.top = '50vh';
             clubsContainer.style.opacity = 1;
-            clubsIconsContainer.style.marginLeft = '0';
+            clubsIconsContainer.style.left = '0%';
             // sponsors.classList.remove('focus');
             organizerContainer.classList.add('focus');
             organizerContainer.classList.remove('progress');
@@ -134,7 +134,7 @@ async function scrollLast(event, full=false){
             // clubsBack.style.filter = 'brightness(' + Math.abs((1 - (top+i)/50)*100) + '%)';
             clubsContainer.style.top = '0';
             clubsContainer.style.opacity = Math.abs((100-top-i)/50);
-            clubsIconsContainer.style.marginLeft = (Math.abs(top+i-50)/50*80) + '%';
+            clubsIconsContainer.style.left = (Math.abs(top+i-50)/50*100) + '%';
             organizerContainer.style.top = (top+i) + 'vh';
             organizerContainer.classList.add('progress');
             console.log("movement, top + i: " + (top + i));

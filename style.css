@@ -326,6 +326,7 @@ html, body{
 }
 
 .clubs-icons-container{
+    position: relative;
     display: flex;
     width: 85%;
     flex-direction: column;
