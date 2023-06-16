@@ -224,7 +224,7 @@ html, body{
     flex-direction: column;
     width: 50%;
     font-family: Assistant-bold;
-    margin-bottom: 5%;
+    margin-bottom: 10%;
 }
 .schedule .title{
     color:#f0f2ff;
@@ -317,47 +317,66 @@ html, body{
 }
 
 .clubs-container .title{
+    display: flex;
     color: #f0f2ff;
     margin-bottom: 0;
     letter-spacing: 0;
     font-family: Assistant-extrabold;
-
+    width: 15%;
 }
 
 .clubs-icons-container{
-    position: static;
     display: flex;
+    width: 85%;
+    flex-direction: column;
     justify-content: center;
-    height: 50vh;
+    align-items: center;
+    height: 80%;
+    padding-top:10%;
+    padding-bottom: 10%;
 }
 
-.clubs-icons{
+.club-icons-top{
     display: flex;
-    flex-wrap: wrap;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding-bottom: 0.5vw;
     justify-content:flex-start;
-    align-content: center;
-    width: 55%;
+    align-items: flex-end;
+    height: 50%;
+    width: fit-content;
 }
-
-.club{
+.club-icons-bottom{
     display: flex;
-    flex: 25%;
-    max-width: 25%;
-    height: 53%;
-    margin-bottom: 0.5%;
-    margin-top: 0.5%;
-    justify-content: center;
+    padding-top: 0.5vw;
+    justify-content:flex-start;
+    align-items: flex-start;
+    height: 50%;
+    width: fit-content;
 }
 
+/* .club{
+    display: flex;
+    width: min-content;
+    height: 75%;
+} */
 
-.club img{
+
+.club-info{
+    display: flex;
+    max-height: 100%;
+    width: 25%;
+    aspect-ratio: 1/1;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+    border: 2px solid #f0f2ff;
+    border-radius: 8px;
+}
+.filler{
+    display: flex;
     height: 100%;
     aspect-ratio: 1/1;
     object-fit: contain;
-    border: 2px solid #f0f2ff;
-    border-radius: 8px;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
 }
 
 .club-info-container{
@@ -516,6 +535,7 @@ html, body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .organizer-container .title{
@@ -526,23 +546,49 @@ html, body{
 }
 
 .bracket{
-    padding-left: 2%;
-    padding-right: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
     display: flex;
-    width: 96%;
+    width: 94%;
     height: 10%;
-    align-items: flex-end;
+    margin-bottom: 0.5%;
+}
+.bracket img{
+    width: 100%;
 }
 
-.bracket .operations{
+/* .bracket .operations{
     display: flex;
     height: 60%;
-    width: calc(28% - 4px);
+    width: calc(28% - 28px);
     margin-left: 1%;
     border-top: 2px solid #f0f2ff;
     border-left: 2px solid #f0f2ff;
     border-right: 2px solid #f0f2ff;
+    border-bottom: none;
     z-index: 7;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+}
+.bracket .operations legend{
+    margin-left: 33%;
+    color: #f0f2ff;
+    font-size: 1.1vw;
+    transform: translate(-50%, 0%);
+    background-color: #e82d48;
+    padding-left: 1%;
+    padding-right: 1%;
+}    
+
+.bracket .operations .role{
+    position: absolute;
+    left: 33%;
+    transform: translate(-50%, -50%);
+    background-color: #e82d48;
+    padding-left: 1%;
+    padding-right: 1%;
 }
 .bracket .finance{
     display: flex;
@@ -552,6 +598,18 @@ html, body{
     border-top: 2px solid #f0f2ff;
     border-left: 2px solid #f0f2ff;
     border-right: 2px solid #f0f2ff;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.bracket .finance .role{
+    position: absolute;
+    left: 33%;
+    transform: translate(-50%, -50%);
+    background-color: #e82d48;
+    padding-left: 1%;
+    padding-right: 1%;
 }
 .bracket .setup{
     display: flex;
@@ -563,6 +621,9 @@ html, body{
     border-right: 2px solid #f0f2ff;
     z-index: 7;
     position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 .bracket .setup::before,
 .bracket .setup::after{
@@ -582,13 +643,14 @@ html, body{
     top: 2px;
     box-shadow: 0 0 0 2px #e82d48;
 }
-/* 
-.setup-highlight{
-    height: 100%;
-    width: calc(28% - 4px);
-    background-color: pink;
-    background-size: cover;
-} */
+.bracket .setup .role{
+    position: absolute;
+    left: 33%;
+    transform: translate(-50%, -50%);
+    background-color: #e82d48;
+    padding-left: 1%;
+    padding-right: 1%;
+}
 
 .bracket .media{
     display: flex;
@@ -598,17 +660,29 @@ html, body{
     border-top: 2px solid #f0f2ff;
     border-left: 2px solid #f0f2ff;
     border-right: 2px solid #f0f2ff;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.bracket .media .role{
+    position: absolute;
+    left: 67%;
+    transform: translate(-50%, -50%);
+    background-color: #e82d48;
+    padding-left: 1%;
+    padding-right: 1%;
 }
 
+
 .bracket-text{
-    position: relative;
     padding-left: 2%;
     padding-right: 2%;
     display: flex;
     width: 96%;
     height: 10%;
     align-items: flex-end;
-    /* background-color: pink; */
+    z-index: 11;
 }
 
 .role{
@@ -619,7 +693,7 @@ html, body{
 .bracket-text .operations{
     position: relative;
     display: flex;
-    height: 60%;
+    height: 100%;
     width: calc(28%);
     margin-left: 1%;
     justify-content: center;
@@ -630,7 +704,7 @@ html, body{
 .bracket-text .operations .role{
     position: absolute;
     left: 33%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
     background-color: #e82d48;
     padding-left: 1%;
     padding-right: 1%;
@@ -650,7 +724,7 @@ html, body{
 .bracket-text .finance .role{
     position: absolute;
     left: 33%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
     background-color: #e82d48;
     padding-left: 1%;
     padding-right: 1%;
@@ -664,17 +738,18 @@ html, body{
     margin-left: 2%;
     justify-content: center;
     align-items: center;
-    z-index: 10;
+    z-index: 9;
     text-align: center;
-    border-top: 1px solid #f0f2ff;
+
 }
 .bracket-text .setup .role{
     position: absolute;
     left: 33%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
     background-color: #e82d48;
     padding-left: 1%;
     padding-right: 1%;
+    z-index: 11;
 }
 
 .bracket-text .media{
@@ -691,11 +766,11 @@ html, body{
 .bracket-text .media .role{
     position: absolute;
     left: 67%;
-    transform: translate(-50%, -70%);
+    transform: translate(-50%, 0%);
     background-color: #e82d48;
     padding-left: 1%;
     padding-right: 1%;
-}
+} */
 
 /* .bracket-text .setup-highlight{
     position: relative;

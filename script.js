@@ -55,9 +55,9 @@ async function scroll(div1, div2, amt, full=false){
         var newTop = 100;
     }
     else{
-        var newTop = top - 10*Math.sign(amt);
+        var newTop = top - 34*Math.sign(amt);
     }
-    for(let i = 1; Math.abs(i) <= Math.abs(newTop-top); i+= 1*Math.sign(newTop-top)){
+    for(let i = 0; Math.abs(i) <= Math.abs(newTop-top); i+= 1*Math.sign(newTop-top)){
         console.log("e");
         if((top+i) >= 100 && amt < 0){
             div2.style.top = '100vh';
@@ -82,7 +82,7 @@ async function scroll(div1, div2, amt, full=false){
             div1.style.filter = 'brightness(' + (parseFloat(div2.style.top.slice(0, -2))) + '%)';            
             div2.classList.add('progress');
             console.log("scrolling");
-            await wait(1);
+            await wait(0);
         }
             
     }
@@ -103,12 +103,14 @@ async function scrollLast(event, full=false){
     var top = parseFloat(organizerContainer.style.top.slice(0, -2));
     var newTop = top - 17*Math.sign(event.deltaY);
     if(full && event.deltaY > 0){
-        newTop = 100;
-    }
-    else if(full && event.deltaY < 0){
         newTop = 50;
     }
-    for(let i = 1; Math.abs(i) <= Math.abs(newTop-top); i += 1*Math.sign(newTop-top)){
+    else if(full && event.deltaY < 0){
+        newTop = 100;
+    }
+    console.log("new top: " + newTop);
+    for(let i = 0; Math.abs(i) <= Math.abs(newTop-top); i += 1*Math.sign(newTop-top)){
+        console.log("top + i: " + (top + i));
         if((top+i) >= 100 && event.deltaY < 0){
             clubsContainer.style.top = '100vh';
             organizerContainer.style.top = '100vh';
@@ -116,26 +118,27 @@ async function scrollLast(event, full=false){
             sponsors.classList.add('focus');
             organizerContainer.classList.remove('focus');
             organizerContainer.classList.remove('progress');
-            return;
+            break;
         }
         else if((top+i) <= 50 && event.deltaY > 0){
             organizerContainer.style.top = '50vh';
             clubsContainer.style.opacity = 1;
             clubsIconsContainer.style.marginLeft = '0';
-            sponsors.classList.remove('focus');
+            // sponsors.classList.remove('focus');
             organizerContainer.classList.add('focus');
             organizerContainer.classList.remove('progress');
-            return;
+            console.log("case 2");
+            break;
         }
         else{
             // clubsBack.style.filter = 'brightness(' + Math.abs((1 - (top+i)/50)*100) + '%)';
             clubsContainer.style.top = '0';
             clubsContainer.style.opacity = Math.abs((100-top-i)/50);
             clubsIconsContainer.style.marginLeft = (Math.abs(top+i-50)/50*80) + '%';
-            console.log((Math.abs(top+i-50)/50)*80)
             organizerContainer.style.top = (top+i) + 'vh';
             organizerContainer.classList.add('progress');
-            await wait(1);
+            console.log("movement, top + i: " + (top + i));
+            await wait(0);
         }
     }
 }
@@ -143,7 +146,7 @@ async function scrollLast(event, full=false){
 async function scrollPage(event, full=false){
     console.log("scroll page function call");
     var top = pages[2].scrollTop;
-    var delta = pages[2].clientHeight*0.1*Math.sign(event.deltaY);
+    var delta = pages[2].clientHeight*0.2*Math.sign(event.deltaY);
     if(full && event.deltaY > 0){
         delta = pages[2].scrollHeight - top;
     }
@@ -151,7 +154,7 @@ async function scrollPage(event, full=false){
         delta = -top-2;
     }
     console.log("delta: " + delta);
-    for(let i = 1; Math.abs(i) <= Math.abs(delta); i += delta*0.1){
+    for(let i = 0; Math.abs(i) <= Math.abs(delta); i += delta*0.1){
         if(pages[2].scrollTop + pages[2].clientHeight >= pages[2].scrollHeight && event.deltaY > 0){
             pages[2].scrollTop = pages[2].scrollHeight;
             console.log("case 1");
@@ -168,7 +171,7 @@ async function scrollPage(event, full=false){
             console.log("attempted scrolling");
             pages[2].scrollTop = top+i;
             console.log(pages[2].scrollTop);
-            await wait(1);
+            await wait(0);
         }
     }
 }
@@ -257,8 +260,8 @@ var panelistsContainerBack = document.getElementById('panelist-back');
 panelistsContainerBack.style.height = panelistsContainer.clientHeight + 'px';
 
 
-document.querySelector('.bracket-text').style.marginTop = '-' + document.querySelector('.bracket').clientHeight + 'px';
-console.log(document.querySelector('.bracket-text').style.marginTop);
+// document.querySelector('.bracket-text').style.marginTop = '-' + document.querySelector('.bracket').clientHeight*1 + 'px';
+// console.log(document.querySelector('.bracket-text').style.marginTop);
 
 
 
