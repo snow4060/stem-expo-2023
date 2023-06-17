@@ -85,7 +85,6 @@ html, body{
     display: flex;
     flex-direction: column;
     align-items: center;    
-    justify-content: center;
     /* animation: type 4s steps(60, end); */
 }
 
@@ -100,6 +99,14 @@ html, body{
     font-size: 3.5vw;
     line-height: 10vh;
     visibility: hidden;
+}
+
+.smaller-text{
+    font-family: Assistant-bold;
+    font-size: 2vw;
+    line-height: 10vh;
+    visibility: hidden;
+    left: 0;
 }
 
 .purpose{
@@ -133,6 +140,7 @@ html, body{
 .purpose-content{
     font-size: 1.25vw;
     letter-spacing: 0.05em;
+    line-height: 2em;
 }
 
 .panelist-schedule{
@@ -299,6 +307,14 @@ html, body{
 
 .sponsor-img img{
     max-width: 75%;
+}
+
+.sponsor-request{
+    letter-spacing: 0.1em;
+    font-size: 2vw;
+}
+.sponsor-request a{
+    color: darkgrey;
 }
 
 .clubs-container{

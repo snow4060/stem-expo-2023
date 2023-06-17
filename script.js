@@ -36,6 +36,10 @@ document.addEventListener("DOMContentLoaded", async function() {
     setTimeout(() => {
             document.querySelector('.small-text').style.visibility = 'visible';
     }, characters.length*100 + 150);
+
+    setTimeout(() => {
+        document.querySelector('.smaller-text').style.visibility = 'visible';
+    }, characters.length*100 + 300);
 });
 
 function wait(timeout){
@@ -246,7 +250,7 @@ function handleScroll(event, full=false) {
     }
 }
 
-function pauseScroll(time=100){
+function pauseScroll(time=200){
     window.removeEventListener('wheel', handleScroll);
     setTimeout(() => {
         window.addEventListener('wheel', handleScroll);
@@ -292,28 +296,106 @@ var description = document.querySelector('.description');
 var contact = document.getElementById('contact');
 var instagram = document.getElementById('instagram');
 var instagramAcc = document.getElementById('instagram-account');
-var email = document.querySelector('.email');
+var email = document.getElementById("email");
+var emailAcc = document.getElementById("email-account");
 
 function setDescription(name){
     if(name == "AIAS"){
         clubImg.src = "club-logo/aias.jpg";
         clubTitle.innerHTML = "AIAS";
-        description.innerHTML = "American Institute Architecture Society";
+        description.innerHTML = "AIAS is Independence's own chapter of the American Institute of Architecture Students! We are focused on learning more about architecture and the entire process that goes into making buildings come to life. We will be designing buildings, working with models, and participating in AFSF.";
         contact.innerHTML = "Contact:";
         instagram.innerHTML = "Instagram: @";
         instagramAcc.innerHTML = "indyaias";
         instagramAcc.href = "https://www.instagram.com/indyaias/";
-        email.innerHTML = "";
+        email.innerHTML = "Email: ";
+        emailAcc.innerHTML = "independencehs@aias.org";
+        emailAcc.href = "mailto: independencehs@aias.org";
     }
-    if(name == "Computer Science"){
+    else if(name == "Computer Science"){
         clubImg.src = "club-logo/cs.png";
         clubTitle.innerHTML = "Computer Science Club";
-        description.innerHTML = "computer science club is where you learn cs";
+        description.innerHTML = "Computer science club was established to teach people of all skill levels programming, including Python, web development, and machine learning. We also host hackathons throughout the year for members to demonstrate their skills through programming projects.";
         contact.innerHTML = "Contact: ";
         instagram.innerHTML = "Instagram: @";
         instagramAcc.innerHTML = "ihscsclub76";
         instagramAcc.href = "https://www.instagram.com/ihscsclub76/";
-        email.innerHTML = "Email: ihscompsciclub76@gmail.com";
+        email.innerHTML = "Email: ";
+        emailAcc.innerHTML = "ihscompsciclub76@gmail.com";
+        emailAcc.href = "mailto: ihscompsciclub76@gmail.com";
+    }
+    else if(name == "Game Dev"){
+        clubImg.src = "club-logo/game_dev.jpg";
+        clubTitle.innerHTML = "Game Dev Club";
+        description.innerHTML = "Game dev club is a newly created club that teaches students game development from scratch using a variety of platforms. We host hackathons at the end of every unit for members to use their knowledge to crate their own mini-game.";
+        contact.innerHTML = "Contact : ";
+        instagram.innerHTML = "Instagram: @";
+        instagramAcc.innerHTML = "ihsgamedevclub";
+        instagramAcc.href = "https://www.instagram.com/ihsgamedevclub/";
+        email.innerHTML = "Email: "
+        emailAcc.innerHTML = "ihsgamedevclub@gmail.com";
+        email.href = "mailto: ihsgamedevclub@gmail.com";
+    }
+    else if(name == "MESA"){
+        clubImg.src = "club-logo/mesa.jpg";
+        clubTitle.innerHTML = "MESA Club";
+        description.innerHTML = "Independence chapter of MESA (Math Engineering Science Achievement) SJSU.";
+        contact.innerHTML = "Contact : ";
+        instagram.innerHTML = "Instagram: @";
+        instagramAcc.innerHTML = "ihsmesa";
+        instagramAcc.href = "https://www.instagram.com/ihsmesa/";
+        // email.innerHTML = "Email: "; 
+        // emailAcc.innerHTML = "";
+        // emailAcc.href = "mailto: ";
+        email.innerHTML = ""; 
+        emailAcc.innerHTML = "";
+        emailAcc.href = "";
+    }
+    else if(name == "RC Hydrogen Car"){
+        clubImg.src = "club-logo/rc_hydro.jpg";
+        clubTitle.innerHTML = "RC Hydrogen Car Club";
+        description.innerHTML = "";
+        // contact.innerHTML = "Contact : ";
+        // instagram.innerHTML = "Instagram: @";
+        // instagramAcc.innerHTML = "";
+        // instagramAcc.href = "";
+        // email.innerHTML = "Email: ";
+        // emailAcc.innerHTML = "";
+        // emailAcc.href = "mailto: ";
+        contact.innerHTML = "";
+        instagram.innerHTML = "";
+        instagramAcc.innerHTML = "";
+        instagramAcc.href = "";
+        email.innerHTML = "";
+        emailAcc.innerHTML = "";
+        emailAcc.href = "";
+    }
+    else if(name == "Robotics"){
+        clubImg.src = "club-logo/robotics.png";
+        clubTitle.innerHTML = "Robotics Team";
+        description.innerHTML = "The robotics team is split into the software and hardware teams, and competes in the annual regional and international Botball competition by KIPR.";
+        contact.innerHTML = "Contact : ";
+        instagram.innerHTML = "Instagram: @";
+        instagramAcc.innerHTML = "ihsrobotics76";
+        instagramAcc.href = "https://www.instagram.com/ihsrobotics76/";
+        email.innerHTML = "Email: ";
+        emailAcc.innerHTML = "ihsrobotics76@gmail.com";
+        emailAcc.href = "mailto: ihsrobotics76@gmail.com";
+    }
+    else if(name == "Solar Suitcase"){
+        clubImg.src = "club-logo/solar_suitcase.png";
+        clubTitle.innerHTML = "Solar Suitcase";
+        description.innerHTML = " Solar Suitcase is a club dedicated to constructing solar-powered energy solutions for developing countries. Club members also learn the fundamentals of electricity and have the opportunity to build personal projects as well.";
+        contact.innerHTML = "Contact : ";
+        instagram.innerHTML = "Instagram: @";
+        instagramAcc.innerHTML = "ihs_solarsuitcase";
+        instagramAcc.href = "https://www.instagram.com/ihs_solarsuitcase/";
+        // email.innerHTML = "Email: ";
+        // emailAcc.innerHTML = "";
+        // emailAcc.href = "mailto: ";
+        email.innerHTML = "";
+        emailAcc.innerHTML = "";
+        emailAcc.href = "";
     }
 }
 
