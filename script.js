@@ -328,7 +328,7 @@ function setDescription(name){
         clubImg.src = "club-logo/game_dev.jpg";
         clubTitle.innerHTML = "Game Dev Club";
         description.innerHTML = "Game dev club is a newly created club that teaches students game development from scratch using a variety of platforms. We host hackathons at the end of every unit for members to use their knowledge to crate their own mini-game.";
-        contact.innerHTML = "Contact : ";
+        contact.innerHTML = "Contact: ";
         instagram.innerHTML = "Instagram: @";
         instagramAcc.innerHTML = "ihsgamedevclub";
         instagramAcc.href = "https://www.instagram.com/ihsgamedevclub/";
@@ -340,7 +340,7 @@ function setDescription(name){
         clubImg.src = "club-logo/mesa.jpg";
         clubTitle.innerHTML = "MESA Club";
         description.innerHTML = "Independence chapter of MESA (Math Engineering Science Achievement) SJSU.";
-        contact.innerHTML = "Contact : ";
+        contact.innerHTML = "Contact: ";
         instagram.innerHTML = "Instagram: @";
         instagramAcc.innerHTML = "ihsmesa";
         instagramAcc.href = "https://www.instagram.com/ihsmesa/";
@@ -355,7 +355,7 @@ function setDescription(name){
         clubImg.src = "club-logo/rc_hydro.jpg";
         clubTitle.innerHTML = "RC Hydrogen Car Club";
         description.innerHTML = "";
-        // contact.innerHTML = "Contact : ";
+        // contact.innerHTML = "Contact: ";
         // instagram.innerHTML = "Instagram: @";
         // instagramAcc.innerHTML = "";
         // instagramAcc.href = "";
@@ -374,7 +374,7 @@ function setDescription(name){
         clubImg.src = "club-logo/robotics.png";
         clubTitle.innerHTML = "Robotics Team";
         description.innerHTML = "The robotics team is split into the software and hardware teams, and competes in the annual regional and international Botball competition by KIPR.";
-        contact.innerHTML = "Contact : ";
+        contact.innerHTML = "Contact: ";
         instagram.innerHTML = "Instagram: @";
         instagramAcc.innerHTML = "ihsrobotics76";
         instagramAcc.href = "https://www.instagram.com/ihsrobotics76/";
@@ -386,16 +386,13 @@ function setDescription(name){
         clubImg.src = "club-logo/solar_suitcase.png";
         clubTitle.innerHTML = "Solar Suitcase";
         description.innerHTML = " Solar Suitcase is a club dedicated to constructing solar-powered energy solutions for developing countries. Club members also learn the fundamentals of electricity and have the opportunity to build personal projects as well.";
-        contact.innerHTML = "Contact : ";
+        contact.innerHTML = "Contact: ";
         instagram.innerHTML = "Instagram: @";
         instagramAcc.innerHTML = "ihs_solarsuitcase";
         instagramAcc.href = "https://www.instagram.com/ihs_solarsuitcase/";
-        // email.innerHTML = "Email: ";
-        // emailAcc.innerHTML = "";
-        // emailAcc.href = "mailto: ";
-        email.innerHTML = "";
-        emailAcc.innerHTML = "";
-        emailAcc.href = "";
+        email.innerHTML = "Email: ";
+        emailAcc.innerHTML = "indesolarsuitcase@gmail.com";
+        emailAcc.href = "mailto: indesolarsuitcase@gmail.com";
     }
 }
 
