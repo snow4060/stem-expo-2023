@@ -161,7 +161,7 @@ async function scrollPage(event, full=false){
     }
     console.log("delta: " + delta);
     if(delta == 0){ return; }
-    for(let i = 0; Math.abs(i) <= Math.abs(delta); i += delta*0.1){
+    for(let i = 0; Math.abs(i) <= Math.abs(delta); i += delta*0.03){
         if(pages[2].scrollTop + pages[2].clientHeight >= pages[2].scrollHeight && event.deltaY > 0){
             pages[2].scrollTop = pages[2].scrollHeight;
             console.log("case 1");
@@ -178,7 +178,7 @@ async function scrollPage(event, full=false){
             console.log("attempted scrolling");
             pages[2].scrollTop = top+i;
             console.log(pages[2].scrollTop);
-            await wait(6);
+            await wait(0);
         }
     }
 }
