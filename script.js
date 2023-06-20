@@ -1,21 +1,20 @@
-var pages;
-async function loadPages(){
-    pages = document.querySelectorAll('.container');
-    console.log(pages);
-    pages[0].classList.add('focus');
-    pages[0].style.top = '0';
-    for(let i = 1; i < pages.length; i++){
-        pages[i].style.top = '100vh';
-    }
-    pages[2].scrollTop = 0;
-}
+// var pages;
+// async function loadPages(){
+//     pages = document.querySelectorAll('.container');
+//     console.log(pages);
+//     pages[0].classList.add('focus');
+//     pages[0].style.top = '0';
+//     for(let i = 1; i < pages.length; i++){
+//         pages[i].style.top = '100vh';
+//     }
+// }
 
 
 
 
 
 document.addEventListener("DOMContentLoaded", async function() {
-    loadPages();
+    // loadPages();
     // Get the animated-text element
     const animatedText = document.querySelector(".large-text");
     
@@ -95,160 +94,160 @@ async function scroll(div1, div2, amt, full=false){
 
 var sponsors = document.querySelector('.sponsors');
 var clubsContainer = document.querySelector('.clubs-container');
-clubsContainer.style.top = '100vh';
-clubsContainer.style.opacity = 0;
+// clubsContainer.style.top = '100vh';
+// clubsContainer.style.opacity = 0;
 var organizerContainer = document.querySelector('.organizer-container');
-organizerContainer.style.top = '100vh';
+// organizerContainer.style.top = '100vh';
 var clubsIconsContainer = document.querySelector('.clubs-icons-container');
-clubsIconsContainer.style.left = '100%';
+// clubsIconsContainer.style.left = '100%';
 
-async function scrollLast(event, full=false){
-    console.log("scroll last: " + event.deltaY);
-    // var scrollAmt = event.deltaY*150;
-    var top = parseFloat(organizerContainer.style.top.slice(0, -2));
-    var newTop = top - 17*Math.sign(event.deltaY);
-    if(full && event.deltaY > 0){
-        newTop = 50;
-    }
-    else if(full && event.deltaY < 0){
-        newTop = 100;
-    }
-    console.log("new top: " + newTop);
-    if(Math.sign(newTop - top) == 0){ return; }
-    for(let i = 0; Math.abs(i) <= Math.abs(newTop-top); i += 1*Math.sign(newTop-top)){
-        console.log("top + i: " + (top + i));
-        if((top+i) >= 100 && event.deltaY < 0){
-            clubsContainer.style.top = '100vh';
-            organizerContainer.style.top = '100vh';
-            clubsIconsContainer.style.left = '100%';
-            sponsors.classList.add('focus');
-            organizerContainer.classList.remove('focus');
-            organizerContainer.classList.remove('progress');
-            break;
-        }
-        else if((top+i) <= 50 && event.deltaY > 0){
-            organizerContainer.style.top = '50vh';
-            clubsContainer.style.opacity = 1;
-            clubsIconsContainer.style.left = '0%';
-            // sponsors.classList.remove('focus');
-            organizerContainer.classList.add('focus');
-            organizerContainer.classList.remove('progress');
-            console.log("case 2");
-            break;
-        }
-        else{
-            // clubsBack.style.filter = 'brightness(' + Math.abs((1 - (top+i)/50)*100) + '%)';
-            clubsContainer.style.top = '0';
-            clubsContainer.style.opacity = Math.abs((100-top-i)/50);
-            clubsIconsContainer.style.left = (Math.abs(top+i-50)/50*100) + '%';
-            organizerContainer.style.top = (top+i) + 'vh';
-            organizerContainer.classList.add('progress');
-            console.log("movement, top + i: " + (top + i));
-            await wait(0);
-        }
-    }
-}
+// async function scrollLast(event, full=false){
+//     console.log("scroll last: " + event.deltaY);
+//     // var scrollAmt = event.deltaY*150;
+//     var top = parseFloat(organizerContainer.style.top.slice(0, -2));
+//     var newTop = top - 17*Math.sign(event.deltaY);
+//     if(full && event.deltaY > 0){
+//         newTop = 50;
+//     }
+//     else if(full && event.deltaY < 0){
+//         newTop = 100;
+//     }
+//     console.log("new top: " + newTop);
+//     if(Math.sign(newTop - top) == 0){ return; }
+//     for(let i = 0; Math.abs(i) <= Math.abs(newTop-top); i += 1*Math.sign(newTop-top)){
+//         console.log("top + i: " + (top + i));
+//         if((top+i) >= 100 && event.deltaY < 0){
+//             clubsContainer.style.top = '100vh';
+//             organizerContainer.style.top = '100vh';
+//             clubsIconsContainer.style.left = '100%';
+//             sponsors.classList.add('focus');
+//             organizerContainer.classList.remove('focus');
+//             organizerContainer.classList.remove('progress');
+//             break;
+//         }
+//         else if((top+i) <= 50 && event.deltaY > 0){
+//             organizerContainer.style.top = '50vh';
+//             clubsContainer.style.opacity = 1;
+//             clubsIconsContainer.style.left = '0%';
+//             // sponsors.classList.remove('focus');
+//             organizerContainer.classList.add('focus');
+//             organizerContainer.classList.remove('progress');
+//             console.log("case 2");
+//             break;
+//         }
+//         else{
+//             // clubsBack.style.filter = 'brightness(' + Math.abs((1 - (top+i)/50)*100) + '%)';
+//             clubsContainer.style.top = '0';
+//             clubsContainer.style.opacity = Math.abs((100-top-i)/50);
+//             clubsIconsContainer.style.left = (Math.abs(top+i-50)/50*100) + '%';
+//             organizerContainer.style.top = (top+i) + 'vh';
+//             organizerContainer.classList.add('progress');
+//             console.log("movement, top + i: " + (top + i));
+//             await wait(0);
+//         }
+//     }
+// }
 
-async function scrollPage(event, full=false){
-    console.log("scroll page function call");
-    var top = pages[2].scrollTop;
-    var delta = pages[2].clientHeight*0.2*Math.sign(event.deltaY);
-    if(full && event.deltaY > 0){
-        delta = pages[2].scrollHeight - top;
-    }
-    else if(full && event.deltaY < 0){
-        delta = -top-2;
-    }
-    console.log("delta: " + delta);
-    if(delta == 0){ return; }
-    for(let i = 0; Math.abs(i) <= Math.abs(delta); i += delta*0.03){
-        if(pages[2].scrollTop + pages[2].clientHeight >= pages[2].scrollHeight && event.deltaY > 0){
-            pages[2].scrollTop = pages[2].scrollHeight;
-            console.log("case 1");
-            pauseScroll();
-            return;
-        }
-        else if(pages[2].scrollTop <= 0 && event.deltaY < 0){
-            pages[2].scrollTop = 0;
-            console.log("case 2");
-            pauseScroll();
-            return;
-        }
-        else{
-            console.log("attempted scrolling");
-            pages[2].scrollTop = top+i;
-            console.log(pages[2].scrollTop);
-            await wait(0);
-        }
-    }
-}
+// async function scrollPage(event, full=false){
+//     console.log("scroll page function call");
+//     var top = pages[2].scrollTop;
+//     var delta = pages[2].clientHeight*0.2*Math.sign(event.deltaY);
+//     if(full && event.deltaY > 0){
+//         delta = pages[2].scrollHeight - top;
+//     }
+//     else if(full && event.deltaY < 0){
+//         delta = -top-2;
+//     }
+//     console.log("delta: " + delta);
+//     if(delta == 0){ return; }
+//     for(let i = 0; Math.abs(i) <= Math.abs(delta); i += delta*0.03){
+//         if(pages[2].scrollTop + pages[2].clientHeight >= pages[2].scrollHeight && event.deltaY > 0){
+//             pages[2].scrollTop = pages[2].scrollHeight;
+//             console.log("case 1");
+//             pauseScroll();
+//             return;
+//         }
+//         else if(pages[2].scrollTop <= 0 && event.deltaY < 0){
+//             pages[2].scrollTop = 0;
+//             console.log("case 2");
+//             pauseScroll();
+//             return;
+//         }
+//         else{
+//             console.log("attempted scrolling");
+//             pages[2].scrollTop = top+i;
+//             console.log(pages[2].scrollTop);
+//             await wait(0);
+//         }
+//     }
+// }
 
-function handleScroll(event, full=false) {
-    pauseScroll(50);
-    //whether allow scrolling on panelist page 
-    if(parseFloat(pages[2].style.top.slice(0, -2)) == 0 && pages[3].style.top.slice(0, -2) >= 100){
-        console.log("scroll top: " + pages[2].scrollTop);
-        console.log("client height: " + pages[2].clientHeight);
-        console.log("scroll height: " + pages[2].scrollHeight);
-        scrollPage(event, full);
-    }
+// function handleScroll(event, full=false) {
+//     pauseScroll(50);
+//     //whether allow scrolling on panelist page 
+//     // if(parseFloat(pages[2].style.top.slice(0, -2)) == 0 && pages[3].style.top.slice(0, -2) >= 100){
+//     //     console.log("scroll top: " + pages[2].scrollTop);
+//     //     console.log("client height: " + pages[2].clientHeight);
+//     //     console.log("scroll height: " + pages[2].scrollHeight);
+//     //     scrollPage(event, full);
+//     // }
 
-    //positive: scroll down
-    if(event.deltaY > 0){
-        if(sponsors.classList.contains('focus') && !sponsors.classList.contains('progress')){
-            scrollLast(event, full);
-            return;   
-        }       
-        //find the page that is in focus
-        for(let i = 0; i < pages.length; i++){
-            if(pages[i].classList.contains('focus')){
-                firstDiv = pages[i];
-                secondDiv = pages[i+1];
-            }
-            if(pages[i].classList.contains('progress')){
-                firstDiv = pages[i-1];
-                secondDiv = pages[i];
-                break;
-            }
-        }
-        //prevent overflow
-        if(Array.prototype.indexOf.call(pages, firstDiv)+1 >= pages.length || Array.prototype.indexOf.call(pages, secondDiv) < 1){
-            return;
-        }
-        // console.log(firstDiv.scrollHeight)
-        if(firstDiv.classList.contains('panelist-schedule') && firstDiv.scrollTop + firstDiv.clientHeight < firstDiv.scrollHeight){
-            console.log("schedule protection");
-            console.log(firstDiv.style.overflowY);
-            return; 
-        }
-        console.log("normal scroll call");
-        scroll(firstDiv, secondDiv, event.deltaY, full);
-    }
-    // negative: scroll up 
-    else{
-        if(organizerContainer.classList.contains('focus') || organizerContainer.classList.contains('progress')){
-            scrollLast(event, full);
-            return;
-        }
-        //find the page that is in focus
-        for(var i = 0; i < pages.length; i++){
-            if(pages[i].classList.contains('focus')){
-                firstDiv = pages[i-1];
-                secondDiv = pages[i];
-            }
-            if(pages[i].classList.contains('progress')){
-                firstDiv = pages[i-1];
-                secondDiv = pages[i];
-                break;
-            }
-        }
-        //prevent overflow
-        if(Array.prototype.indexOf.call(pages, secondDiv) < 1){ return; }
-        if(secondDiv.classList.contains('panelist-schedule') && secondDiv.scrollTop > 0){ return; }
+//     //positive: scroll down
+//     if(event.deltaY > 0){
+//         // if(sponsors.classList.contains('focus') && !sponsors.classList.contains('progress')){
+//         //     scrollLast(event, full);
+//         //     return;   
+//         // }       
+//         //find the page that is in focus
+//         for(let i = 0; i < pages.length; i++){
+//             if(pages[i].classList.contains('focus')){
+//                 firstDiv = pages[i];
+//                 secondDiv = pages[i+1];
+//             }
+//             if(pages[i].classList.contains('progress')){
+//                 firstDiv = pages[i-1];
+//                 secondDiv = pages[i];
+//                 break;
+//             }
+//         }
+//         //prevent overflow
+//         if(Array.prototype.indexOf.call(pages, firstDiv)+1 >= pages.length || Array.prototype.indexOf.call(pages, secondDiv) < 1){
+//             return;
+//         }
+//         // console.log(firstDiv.scrollHeight)
+//         if(firstDiv.classList.contains('panelist-schedule') && firstDiv.scrollTop + firstDiv.clientHeight < firstDiv.scrollHeight){
+//             console.log("schedule protection");
+//             console.log(firstDiv.style.overflowY);
+//             return; 
+//         }
+//         console.log("normal scroll call");
+//         scroll(firstDiv, secondDiv, event.deltaY, full);
+//     }
+//     // negative: scroll up 
+//     else{
+//         // if(organizerContainer.classList.contains('focus') || organizerContainer.classList.contains('progress')){
+//         //     scrollLast(event, full);
+//         //     return;
+//         // }
+//         //find the page that is in focus
+//         for(var i = 0; i < pages.length; i++){
+//             if(pages[i].classList.contains('focus')){
+//                 firstDiv = pages[i-1];
+//                 secondDiv = pages[i];
+//             }
+//             if(pages[i].classList.contains('progress')){
+//                 firstDiv = pages[i-1];
+//                 secondDiv = pages[i];
+//                 break;
+//             }
+//         }
+//         //prevent overflow
+//         if(Array.prototype.indexOf.call(pages, secondDiv) < 1){ return; }
+//         if(secondDiv.classList.contains('panelist-schedule') && secondDiv.scrollTop > 0){ return; }
 
-        scroll(firstDiv, secondDiv, event.deltaY, full);
-    }
-}
+//         scroll(firstDiv, secondDiv, event.deltaY, full);
+//     }
+// }
 
 function pauseScroll(time=200){
     window.removeEventListener('wheel', handleScroll);
@@ -259,7 +258,7 @@ function pauseScroll(time=200){
 }
 
 var firstDiv, secondDiv;
-window.addEventListener('wheel', handleScroll, { passive: false });
+// window.addEventListener('wheel', handleScroll, { passive: false });
 
 
 var panelistsContainer = document.getElementById('panelists');
@@ -339,17 +338,14 @@ function setDescription(name){
     else if(name == "MESA"){
         clubImg.src = "club-logo/mesa.jpg";
         clubTitle.innerHTML = "MESA Club";
-        description.innerHTML = "Independence chapter of MESA (Math Engineering Science Achievement) SJSU.";
+        description.innerHTML = " MESA (Math, Engineering, and Science Achievement) is a club, partnered with SJSU, that competes in a broad range of STEM competitions and provides students with technical skills that will prepare them for future careers within the STEM field. Our club provides an abundant amount of opportunities and resources such as field trips, guest speakers, and workshops, for students to innovate projects that solve real world solutions, and make connections with mentors and professionals within the industry.";
         contact.innerHTML = "Contact: ";
         instagram.innerHTML = "Instagram: @";
         instagramAcc.innerHTML = "ihsmesa";
         instagramAcc.href = "https://www.instagram.com/ihsmesa/";
-        // email.innerHTML = "Email: "; 
-        // emailAcc.innerHTML = "";
-        // emailAcc.href = "mailto: ";
-        email.innerHTML = ""; 
-        emailAcc.innerHTML = "";
-        emailAcc.href = "";
+        email.innerHTML = "Email: "; 
+        emailAcc.innerHTML = "ihsmesa76@gmail.com";
+        emailAcc.href = "mailto: ihsmesa76@gmail.com";
     }
     else if(name == "RC Hydrogen Car"){
         clubImg.src = "club-logo/rc_hydro.jpg";
@@ -408,7 +404,8 @@ document.body.addEventListener('click', function(event){
     console.log(clubInfoContainer.style.visibility);
     if(event.target.matches('.club-info') && clubInfoContainer.style.visibility === 'hidden'){
         setDescription(event.target.alt);
-        console.log("show")
+        clubInfoContainer.style.marginTop = (clubInfoContainer.offsetHeight*-0.5) + "px";
+        console.log("show");
         if(!clubInfoContainer.classList.contains('enlarge-appear')){
             clubInfoContainer.classList.remove('enlarge-disappear');
             clubInfoContainer.classList.add('enlarge-appear');
