@@ -17,8 +17,6 @@ html, body{
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    /* display: grid;
-    place-items: center; */
     background-color: #0c0d19;
     height: 100vh;
     position: relative;
@@ -65,7 +63,7 @@ html, body{
     background-color: #4B43EF;
     right: 0;
     width: 70%;
-    height: 30%;
+    height: fit-content;
     padding: 5%;
     display: flex;
     align-items: center;
@@ -73,8 +71,11 @@ html, body{
 }
 
 .logo{
-    height: 100%;
+    display: flex;
+    /* height: 100%; */
     margin-right: 4vw;
+    /* flex: 5%; */
+    width: 25%;
 }
 
 
@@ -90,26 +91,23 @@ html, body{
     color: #f0f2ff;
     display: flex;
     flex-direction: column;
-    align-items: center;    
+    /* align-items:flex-start;     */
 }
 
 .large-text{
     font-family: Assistant-extrabold;
     font-size: 6vw;
-    line-height: 10vh;
     animation: revealText 2s steps(11) forwards;
 }
 .small-text{
     font-family: Assistant-extrabold;
     font-size: 3.5vw;
-    line-height: 10vh;
     visibility: hidden;
 }
 
 .smaller-text{
     font-family: Assistant-bold;
     font-size: 2vw;
-    line-height: 10vh;
     visibility: hidden;
     left: 0;
 }
@@ -124,10 +122,10 @@ html, body{
     height: fit-content;
     width: 80%;
     text-align: center;
-    padding-top: 5vh;
+    padding-top: 10%;
     padding-left: 10%;
     padding-right: 10%;
-    padding-bottom: 15vh;
+    padding-bottom: 10%;
 }
 
 .title{
@@ -137,7 +135,7 @@ html, body{
 }
 
 .purpose-content{
-    font-size: 1.25vw;
+    font-size: 16px;
     letter-spacing: 0.05em;
     line-height: 2em;
 }
@@ -150,7 +148,7 @@ html, body{
     height: fit-content;
     background-color: #23242a;
     background-size: cover;
-    /* z-index: 3; */
+    z-index: 3;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -205,6 +203,7 @@ html, body{
     font-size: 1.1vw;
     letter-spacing: 0.1em;
     margin-bottom: 1%;
+    margin-top: 1%;
 }
 .panelist .school{
     width: 45%;
@@ -229,6 +228,7 @@ html, body{
     border: 3px solid #4B43EF;
 
     translate: 3% 2.9%;
+    z-index: -1;
 }
 
 .schedule{
@@ -312,7 +312,7 @@ html, body{
     font-size: 2vw;
 }
 .sponsor-request a{
-    color: darkgrey;
+    color: rgb(112, 111, 111);
 }
 
 .clubs-container{
@@ -321,7 +321,7 @@ html, body{
     top: 0;
     left: 0; */
     width: 90%;
-    height: 50%;
+    height: fit-content;
     background-color: #23242a;
     background-size: cover;
     display: flex;
@@ -340,11 +340,11 @@ html, body{
 }
 
 .clubs-icons-container{
-    position: relative;
     display: flex;
     width: 85%;
     flex-direction: column;
-    justify-content: center;
+    justify-content:left;
+    justify-items: left;
     align-items: center;
     height: 80%;
     padding-top:10%;
@@ -367,6 +367,9 @@ html, body{
     height: 50%;
     width: fit-content;
 }
+.club-icons-top img, .club-icons-bottom img{
+    max-width: 23%;
+}
 
 .club-info{
     display: flex;
@@ -388,7 +391,7 @@ html, body{
 }
 
 .club-info-container{
-    position: absolute;
+    position: fixed;
     z-index: 3;
     background-color: #4B43EF;
     background-size: cover;
@@ -398,7 +401,8 @@ html, body{
     width: 50%;
 
     left: 25%;
-    margin-top: -20vh;
+    top: 50%;
+    transform: translate(-1000%, -5000%);
     visibility: hidden;
 }
 
@@ -530,22 +534,23 @@ html, body{
 .organizer-container{
     /* z-index: 3; */
     width: 100%;
-    height: 50vh;
+    height: fit-content;
     background-color: #e82d48;
     background-size: cover;
 }
 
 .organizer-content{
-    height: 100%;
+    height: 80%;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
+    padding-top: 10%;
+    padding-bottom: 10%;
 }
 
-.organizer-container .title{
+.organizer-content .title{
     display: flex;
     font-family: Assistant-extrabold;
     color:#f0f2ff;
@@ -557,7 +562,6 @@ html, body{
     padding-right: 3%;
     display: flex;
     width: 94%;
-    height: 10%;
     margin-bottom: 0.5%;
 }
 .bracket img{
@@ -588,5 +592,27 @@ html, body{
     color:#f0f2ff;
     line-height: 1.2em;
     margin-top: 6px;
+}
+
+.faq .content{
+    text-align: left;
+    font-size: 2vw;
+}
+
+.faq .title{
+    text-align: center;
+}
+
+details{
+    margin-left: 5%;
+    margin-bottom: 2%;
+}
+
+.answer{
+    margin-left: 2%;
+}
+
+.answer a{
+    color: black;
 }
 
