@@ -36,7 +36,7 @@ html, body{
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     position: relative;
     position:sticky
 
@@ -103,6 +103,7 @@ html, body{
     font-family: Assistant-extrabold;
     font-size: 3.5vw;
     visibility: hidden;
+    margin-top: -5%;
 }
 
 .smaller-text{
@@ -135,7 +136,7 @@ html, body{
 }
 
 .purpose-content{
-    font-size: 16px;
+    font-size: 2vw;
     letter-spacing: 0.05em;
     line-height: 2em;
 }
@@ -574,15 +575,6 @@ html, body{
     padding-right: 2%;
 }
 
-.organizer{
-    display: flex;
-    flex: 8%;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    margin-left: 1%;
-    margin-right: 1%;
-}
 .organizer img{
     width: 100%;
     height: 100%;
@@ -603,6 +595,11 @@ html, body{
     text-align: center;
 }
 
+summary{
+    cursor: pointer;
+    font-family: Assistant-bold;
+}
+
 details{
     margin-left: 5%;
     margin-bottom: 2%;
@@ -616,3 +613,58 @@ details{
     color: black;
 }
 
+
+@media screen and (min-width: 768px){
+    /* desktop only */
+    .desktop-display{
+        display: block;
+    }
+    .mobile-display{
+        display: none;
+    }
+
+    .organizer{
+        display: flex;
+        flex: 8%;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+}
+@media screen and (max-width: 768px){
+    /* mobile only */
+    .desktop-display{
+        display: none;
+    }
+    .mobile-display{
+        display: block;
+    }
+
+    .organizers-top, .organizers-bottom{
+        padding-left: 2%;
+        padding-right: 2%;
+        display: flex;
+    }
+
+    .organizers-top .organizer{
+        display: flex;
+        flex: 23%;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+    
+    .organizers-bottom .organizer{
+        display: flex;
+        flex: 18%;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+}
