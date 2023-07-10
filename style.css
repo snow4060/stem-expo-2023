@@ -245,7 +245,7 @@ html, body{
         margin-top: 1%;
     }
     .panelist .school{
-        width: 45%;
+        width: 60%;
         background-color: #c0c9ff;
         background-size: cover;
         color:#4B43EF;
@@ -260,7 +260,7 @@ html, body{
         line-height: 110%;
     }
     .panelist img{
-        width: 50%;
+        width: 65%;
         height: auto;
         aspect-ratio: 1/1;
         margin-bottom: 1%;
