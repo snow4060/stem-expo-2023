@@ -37,7 +37,10 @@ document.addEventListener("DOMContentLoaded", async function() {
     }, characters.length*100 + 150);
 
     setTimeout(() => {
-        document.querySelector('.smaller-text').style.visibility = 'visible';
+        let smallerText = document.querySelectorAll('.smaller-text');
+        for(let i = 0; i < smallerText.length; i++){
+            smallerText[i].style.visibility = 'visible';
+        }
     }, characters.length*100 + 300);
 });
 
@@ -265,16 +268,33 @@ var panelistsContainer = document.getElementById('panelists');
 var panelistsContainerBack = document.getElementById('panelist-back');
 
 panelistsContainerBack.style.height = panelistsContainer.clientHeight + 'px';
-
-
-// document.querySelector('.bracket-text').style.marginTop = '-' + document.querySelector('.bracket').clientHeight*1 + 'px';
-// console.log(document.querySelector('.bracket-text').style.marginTop);
-
-
-
 window.addEventListener('resize', function(){
     panelistsContainerBack.style.height = panelistsContainer.clientHeight + 'px';
 })
+
+var scheduleTitle = document.getElementById('schedule-title');
+var scheduleContainer = document.querySelector('.parallelogram');
+
+scheduleTitle.style.transform = 'translateX(' + -1*scheduleContainer.clientHeight/2*Math.tan(0.174533) + 'px)';
+window.addEventListener('resize', function(){
+    scheduleTitle.style.transform = 'translateX(' + -1*scheduleContainer.clientHeight/2*Math.tan(0.174533) + 'px)';
+})
+// document.querySelector('.bracket-text').style.marginTop = '-' + document.querySelector('.bracket').clientHeight*1 + 'px';
+// console.log(document.querySelector('.bracket-text').style.marginTop);
+
+var clubs = document.getElementById('clubs-container-title');
+var clubsTextWidth = clubs.getBoundingClientRect().width;
+clubs.style.width = clubsTextWidth + 'px';
+clubsIconsContainer.style.width = 'calc(90% - ' + clubsTextWidth + 'px)';
+
+window.addEventListener('resize', function(){
+    console.log('resize');
+    clubsTextWidth = clubs.getBoundingClientRect().width;
+    clubs.style.width = clubsTextWidth + 'px';
+    clubsIconsContainer.style.width = 'calc(90% - ' + clubsTextWidth + 'px)';
+});
+
+
 
 window.addEventListener('load', function(){
     var rows = document.querySelectorAll(".schedule-row");
@@ -290,7 +310,7 @@ window.addEventListener('load', function(){
 });
 
 var clubImg = document.querySelector('.club-image');
-var clubTitle = document.getElementById('club-title');
+var clubTitle = document.querySelectorAll('.club-title');
 var description = document.querySelector('.description');
 var contact = document.getElementById('contact');
 var instagram = document.getElementById('instagram');
@@ -301,7 +321,8 @@ var emailAcc = document.getElementById("email-account");
 function setDescription(name){
     if(name == "AIAS"){
         clubImg.src = "club-logo/aias.jpg";
-        clubTitle.innerHTML = "AIAS";
+        clubTitle[0].innerHTML = "AIAS";
+        clubTitle[1].innerHTML = "AIAS";
         description.innerHTML = "AIAS is Independence's own chapter of the American Institute of Architecture Students! We are focused on learning more about architecture and the entire process that goes into making buildings come to life. We will be designing buildings, working with models, and participating in AFSF.";
         contact.innerHTML = "Contact:";
         instagram.innerHTML = "Instagram: @";
@@ -313,7 +334,8 @@ function setDescription(name){
     }
     else if(name == "Computer Science"){
         clubImg.src = "club-logo/cs.png";
-        clubTitle.innerHTML = "Computer Science Club";
+        clubTitle[0].innerHTML = "Computer Science Club";
+        clubTitle[1].innerHTML = "Computer Science Club";
         description.innerHTML = "Computer science club was established to teach people of all skill levels programming, including Python, web development, and machine learning. We also host hackathons throughout the year for members to demonstrate their skills through programming projects.";
         contact.innerHTML = "Contact: ";
         instagram.innerHTML = "Instagram: @";
@@ -325,19 +347,21 @@ function setDescription(name){
     }
     else if(name == "Game Dev"){
         clubImg.src = "club-logo/game_dev.jpg";
-        clubTitle.innerHTML = "Game Dev Club";
+        clubTitle[0].innerHTML = "Game Dev Club";
+        clubTitle[1].innerHTML = "Game Dev Club";
         description.innerHTML = "Game dev club is a newly created club that teaches students game development from scratch using a variety of platforms. We host hackathons at the end of every unit for members to use their knowledge to crate their own mini-game.";
         contact.innerHTML = "Contact: ";
         instagram.innerHTML = "Instagram: @";
-        instagramAcc.innerHTML = "ihsgamedevclub";
-        instagramAcc.href = "https://www.instagram.com/ihsgamedevclub/";
+        instagramAcc.innerHTML = "ihs.gamedev";
+        instagramAcc.href = "https://www.instagram.com/ihs.gamedev/";
         email.innerHTML = "Email: "
-        emailAcc.innerHTML = "ihsgamedevclub@gmail.com";
-        email.href = "mailto: ihsgamedevclub@gmail.com";
+        emailAcc.innerHTML = "ihsgamedevelopmentclub@gmail.com";
+        email.href = "mailto: ihsgamedevelopmentclub@gmail.com";
     }
     else if(name == "MESA"){
         clubImg.src = "club-logo/mesa.jpg";
-        clubTitle.innerHTML = "MESA Club";
+        clubTitle[0].innerHTML = "MESA Club";
+        clubTitle[1].innerHTML = "MESA Club";
         description.innerHTML = " MESA (Math, Engineering, and Science Achievement) is a club, partnered with SJSU, that competes in a broad range of STEM competitions and provides students with technical skills that will prepare them for future careers within the STEM field. Our club provides an abundant amount of opportunities and resources such as field trips, guest speakers, and workshops, for students to innovate projects that solve real world solutions, and make connections with mentors and professionals within the industry.";
         contact.innerHTML = "Contact: ";
         instagram.innerHTML = "Instagram: @";
@@ -349,7 +373,8 @@ function setDescription(name){
     }
     else if(name == "RC Hydrogen Car"){
         clubImg.src = "club-logo/rc_hydro.jpg";
-        clubTitle.innerHTML = "RC Hydrogen Car Club";
+        clubTitle[0].innerHTML = "RC Hydrogen Car Club";
+        clubTitle[1].innerHTML = "RC Hydrogen Car Club";
         description.innerHTML = "";
         // contact.innerHTML = "Contact: ";
         // instagram.innerHTML = "Instagram: @";
@@ -368,7 +393,8 @@ function setDescription(name){
     }
     else if(name == "Robotics"){
         clubImg.src = "club-logo/robotics.png";
-        clubTitle.innerHTML = "Robotics Team";
+        clubTitle[0].innerHTML = "Robotics Team";
+        clubTitle[1].innerHTML = "RC Hydrogen Car Club";
         description.innerHTML = "The robotics team is split into the software and hardware teams, and competes in the annual regional and international Botball competition by KIPR.";
         contact.innerHTML = "Contact: ";
         instagram.innerHTML = "Instagram: @";
@@ -380,7 +406,8 @@ function setDescription(name){
     }
     else if(name == "Solar Suitcase"){
         clubImg.src = "club-logo/solar_suitcase.png";
-        clubTitle.innerHTML = "Solar Suitcase";
+        clubTitle[0].innerHTML = "Solar Suitcase";
+        clubTitle[1].innerHTML = "Solar Suitcase";
         description.innerHTML = " Solar Suitcase is a club dedicated to constructing solar-powered energy solutions for developing countries. Club members also learn the fundamentals of electricity and have the opportunity to build personal projects as well.";
         contact.innerHTML = "Contact: ";
         instagram.innerHTML = "Instagram: @";
@@ -399,6 +426,12 @@ var organizerContent = document.querySelector('.organizer-content');
 clubInfoContainer.style.visibility = 'hidden';
 
 
+var page6 = document.querySelector('.faq');
+var page1 = document.querySelector('.logo-background')
+var page2 = document.querySelector('.purpose');
+var page3 = document.querySelector('.panelist-schedule');
+var page4 = document.querySelector('.sponsors');
+
 document.body.addEventListener('click', function(event){
     console.log("click");
     console.log(clubInfoContainer.style.visibility);
@@ -413,7 +446,7 @@ document.body.addEventListener('click', function(event){
         if(!clubsContainerTitle.classList.contains('blur-disappear')){
             clubsContainerTitle.classList.remove('blur-appear');
             clubsContainerTitle.classList.add('blur-disappear');
-        }
+        }   
         if(!clubsIconsContainer.classList.contains('blur-disappear')){
             clubsIconsContainer.classList.remove('blur-appear');
             clubsIconsContainer.classList.add('blur-disappear');
@@ -422,6 +455,18 @@ document.body.addEventListener('click', function(event){
             organizerContent.classList.remove('blur-appear');
             organizerContent.classList.add('blur-disappear');
         }
+
+        page1.classList.remove('blur-appear');
+        page1.classList.add('blur-disappear');
+        page2.classList.remove('blur-appear');
+        page2.classList.add('blur-disappear');
+        page3.classList.remove('blur-appear');
+        page3.classList.add('blur-disappear');
+        page4.classList.remove('blur-appear');
+        page4.classList.add('blur-disappear');
+        page6.classList.remove('blur-appear');
+        page6.classList.add('blur-disappear');
+
         clubInfoContainer.style.visibility = 'visible';
     }
     else if(!clubInfoContainer.contains(event.target) && clubInfoContainer.style.visibility === 'visible'){
@@ -443,6 +488,19 @@ document.body.addEventListener('click', function(event){
             organizerContent.classList.remove('blur-disappear');
             organizerContent.classList.add('blur-appear');
         }
+
+        page1.classList.remove('blur-disappear');
+        page1.classList.add('blur-appear');
+        page2.classList.remove('blur-disappear');
+        page2.classList.add('blur-appear');
+        page3.classList.remove('blur-disappear');
+        page3.classList.add('blur-appear');
+        page4.classList.remove('blur-disappear');
+        page4.classList.add('blur-appear');
+        page6.classList.remove('blur-disappear');
+        page6.classList.add('blur-appear');
+
+
         setTimeout(() => {
             clubInfoContainer.style.visibility = 'hidden';
         }, 100);
