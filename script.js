@@ -426,7 +426,7 @@ var organizerContent = document.querySelector('.organizer-content');
 clubInfoContainer.style.visibility = 'hidden';
 
 
-var page6 = document.querySelector('.faq');
+var page6 = document.getElementById('faq-content');
 var page1 = document.querySelector('.logo-background')
 var page2 = document.querySelector('.purpose');
 var page3 = document.querySelector('.panelist-schedule');
@@ -435,9 +435,10 @@ var page4 = document.querySelector('.sponsors');
 document.body.addEventListener('click', function(event){
     console.log("click");
     console.log(clubInfoContainer.style.visibility);
-    if(event.target.matches('.club-info') && clubInfoContainer.style.visibility === 'hidden'){
+    if(event.target.matches('.club-info') && !clubInfoContainer.classList.contains('enlarge-appear')){
         setDescription(event.target.alt);
-        clubInfoContainer.style.marginTop = (clubInfoContainer.offsetHeight*-0.5) + "px";
+        // clubInfoContainer.style.transform = 'translateY(' + clubInfoContainer.offsetHeight*-0.5 + 'px)';
+        // clubInfoContainer.style.marginTop = (clubInfoContainer.offsetHeight*-0.5) + "px";
         console.log("show");
         if(!clubInfoContainer.classList.contains('enlarge-appear')){
             clubInfoContainer.classList.remove('enlarge-disappear');
@@ -501,9 +502,9 @@ document.body.addEventListener('click', function(event){
         page6.classList.add('blur-appear');
 
 
-        setTimeout(() => {
-            clubInfoContainer.style.visibility = 'hidden';
-        }, 100);
+        // setTimeout(() => {
+        //     clubInfoContainer.style.visibility = 'hidden';
+        // }, 100);
     }
 });
 

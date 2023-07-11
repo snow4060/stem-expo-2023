@@ -548,7 +548,7 @@ html, body{
     display: flex;
     padding: 3%;
     border-radius: 36px;
-    top: 50vh;
+    top: 50%;
     visibility: visible;
 }
 
@@ -556,13 +556,16 @@ html, body{
 @media screen and (min-width: 768px){
     .club-info-container{
         width: 50%;
-        left: 25vw;
+        left: 50%;
     }
     .club-img{
         display: flex;
         flex:content;
         align-items: center;
         justify-content: center;
+    }
+    .club-image{
+        height: 25vh;
     }
     .club-description{
         display: flex;
@@ -588,7 +591,7 @@ html, body{
     .club-info-container{
         flex-direction: column;
         width: 80%;
-        left: 7.5%;
+        left: 50%;
         justify-content: center;
         justify-items: center;
         align-items: center;
@@ -605,6 +608,10 @@ html, body{
         flex:content;
         align-items: center;
         justify-content: center;
+
+    }
+    .club-image{
+        height: 20vh;
     }
     .club-description{
         margin-top: 5%;
@@ -614,6 +621,7 @@ html, body{
         padding-left: 3%;
         color:#f0f2ff;
         width: 80%;
+        font-size: 14px;
     }    
     .club-description .description{
         text-align: center;
@@ -636,7 +644,6 @@ html, body{
 
 .club-image{
     flex-shrink: 0;
-    height: 25vh;
     aspect-ratio: 1/1;
     object-fit: contain;
     border-radius: 12px;
@@ -692,25 +699,25 @@ html, body{
 @keyframes enlarge {
     0% {
         opacity: 0;
-        transform: scale(0.2);
-        transform-origin: top;
+        transform: scale(0.2) translate(-50%, -50%);
+        transform-origin: top left;
     }
     100% {
         opacity: 1;
-        transform: scale(1);
-        transform-origin: top;
+        transform: scale(1) translate(-50%, -50%);
+        transform-origin: top left;
     }
 }
 @keyframes shrink {
     0% {
         opacity: 1;
-        transform: scale(1);
-        transform-origin: top;
+        transform: scale(1) translate(-50%, -50%);
+        transform-origin: top left;
     }
     100% {
         opacity: 0;
-        transform: scale(0.2);
-        transform-origin: top;
+        transform: scale(0.2) translate(-50%, -50%);
+        transform-origin: top left;
         visibility: hidden;
     }
 }
