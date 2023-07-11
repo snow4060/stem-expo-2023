@@ -550,9 +550,11 @@ html, body{
     border-radius: 36px;
     top: 50%;
     visibility: visible;
-    transform: translate(-50%, -50%);
 }
 
+.club-info-container .translate{
+    transform: translate(-50%, -50%);
+}
 
 @media screen and (min-width: 768px){
     .club-info-container{
