@@ -394,7 +394,7 @@ function setDescription(name){
     else if(name == "Robotics"){
         clubImg.src = "club-logo/robotics.png";
         clubTitle[0].innerHTML = "Robotics Team";
-        clubTitle[1].innerHTML = "RC Hydrogen Car Club";
+        clubTitle[1].innerHTML = "Robotics Team";
         description.innerHTML = "The robotics team is split into the software and hardware teams, and competes in the annual regional and international Botball competition by KIPR.";
         contact.innerHTML = "Contact: ";
         instagram.innerHTML = "Instagram: @";
