@@ -552,7 +552,7 @@ html, body{
     visibility: visible;
 }
 
-.club-info-container .translate{
+.translate{
     transform: translate(-50%, -50%);
 }
 
